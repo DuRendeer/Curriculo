@@ -4,474 +4,489 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduardo Sochodolak - Currículo</title>
-    <style>
-        :root {
-            --primary-color: #1a2a4a;
-            --secondary-color: #2d4b7e;
-            --accent-color: #3a6ea5;
-            --light-color: #f5f7fa;
-            --dark-color: #0f1a2a;
-            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            position: relative;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        header:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-5px);
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: var(--light-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            color: var(--primary-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            border: 4px solid white;
-            flex-shrink: 0;
-            overflow: hidden; 
-        }
-        
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-        }
-        
-        .leaf {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(42, 82, 152, 0.2);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation: fall 10s linear infinite;
-            opacity: 0;
-        }
-        
-        @keyframes fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(500px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .personal-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .personal-info div {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .section {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .section:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-3px);
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .timeline {
-            margin-top: 1.5rem;
-        }
-        
-        .timeline-item {
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--accent-color);
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-        }
-        
-        .timeline-item h3 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-        
-        .timeline-item .date {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-item .location {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-item p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-item ul {
-            margin-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        .highlight {
-            background-color: rgba(58, 110, 165, 0.1);
-            padding: 1rem;
-            border-radius: 5px;
-            border-left: 3px solid var(--accent-color);
-            margin-top: 1rem;
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .skill {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .skill:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 2rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .cbo {
-            font-size: 0.8rem;
-            color: var(--light-color);
-            background-color: var(--accent-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-            font-weight: normal;
-        }
-        
-        .company {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-        
-
-        @media (max-width: 768px) {
-            header {
-                padding: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .personal-info {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 1rem;
-            }
-            
-            .profile-img {
-                width: 120px;
-                height: 120px;
-                font-size: 50px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <div class="leaf" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-        <div class="leaf" style="top: 15%; left: 85%; animation-delay: 2s;"></div>
-        <div class="leaf" style="top: 5%; left: 50%; animation-delay: 4s;"></div>
-        <div class="leaf" style="top: 8%; left: 15%; animation-delay: 6s;"></div>
-        <div class="leaf" style="top: 12%; left: 75%; animation-delay: 8s;"></div>
-        
-        <header>
-            <div class="header-content">
-                <div class="profile-img">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQEe3XXnEZ4eyw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1705521700856?e=1752710400&v=beta&t=kRi-MCuPuonh4Nkrbhlt-wdhyCvqRFKe7qzwTrjVNBg" alt="Eduardo Sochodolak">
-                </div>
-                <div>
-                    <h1>Eduardo Sochodolak</h1>
-                    <p>Engenheiro de Software</p>
-                    <div class="personal-info">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                        </svg>
-                        <span>03/03/2006</span>
+<body data-tema="escuro">
+    <!-- Botão de alternância de tema -->
+    <button class="botao-alternar-tema" id="botaoTema" aria-label="Alternar entre modo claro e escuro">
+        <svg class="icone-tema icone-sol" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707z"/>
+        </svg>
+        <svg class="icone-tema icone-lua" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+    </button>
+
+    <!-- Fundo com códigos -->
+    <div class="fundo-codigo" aria-hidden="true">
+        <div class="linha-codigo">const desenvolvedor = new Engenheiro('Eduardo Sochodolak');</div>
+        <div class="linha-codigo">function criarSolucoes() { return inovacao + eficiencia; }</div>
+        <div class="linha-codigo">class AutomacaoJuridica extends Sistema {</div>
+        <div class="linha-codigo">  constructor() { this.inicializar(); }</div>
+        <div class="linha-codigo">}</div>
+        <div class="linha-codigo">while (aprendendo) { conhecimento++; }</div>
+        <div class="linha-codigo">export default desenvolvedor;</div>
+    </div>
+
+    <div class="container-principal">
+        <!-- Engrenagens animadas de fundo -->
+        <div class="engrenagem engrenagem-1" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.292-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.292c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+            </svg>
+        </div>
+        <div class="engrenagem engrenagem-2" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.292-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.292c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+            </svg>
+        </div>
+        <div class="engrenagem engrenagem-3" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.292-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.292c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+            </svg>
+        </div>
+
+        <!-- Navegação principal -->
+        <nav class="navegacao-principal">
+            <button class="botao-navegacao ativo" data-secao="curriculo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                </svg>
+                Currículo
+            </button>
+            <button class="botao-navegacao" data-secao="projetos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
+                </svg>
+                Projetos
+            </button>
+        </nav>
+
+        <!-- Conteúdo do Currículo -->
+        <div class="conteudo-secao" id="secao-curriculo">
+            <!-- Cabeçalho com informações pessoais -->
+            <header class="cabecalho-principal">
+                <div class="conteudo-cabecalho">
+                    <div class="foto-perfil">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEe3XXnEZ4eyw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1705521700856?e=1752710400&v=beta&t=kRi-MCuPuonh4Nkrbhlt-wdhyCvqRFKe7qzwTrjVNBg" alt="Eduardo Sochodolak">
                     </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
-                        </svg>
-                        <span>Brasileiro</span>
+                    <div class="informacoes-pessoais">
+                        <h1 class="nome-completo">Eduardo Sochodolak</h1>
+                        <p class="cargo-atual">Engenheiro de Software</p>
+                        <div class="detalhes-contato">
+                            <div class="item-contato">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                </svg>
+                                <span>03/03/2006</span>
+                            </div>
+                            <div class="item-contato">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                                </svg>
+                                <span>Brasileiro</span>
+                            </div>
+                            <div class="item-contato">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                </svg>
+                                <span>(42) 99870-8313</span>
+                            </div>
+                            <div class="item-contato">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                                </svg>
+                                <span>sochodolak22@gmail.com</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                        </svg>
-                        <span>(42) 99870-8313</span>
+                </div>
+            </header>
+<!-- Seção de Experiência Profissional -->
+            <section class="secao-conteudo">
+                <h2 class="titulo-secao">Experiência Profissional</h2>
+                <div class="linha-tempo">
+                    <div class="item-linha-tempo destaque-especial">
+                        <h3 class="titulo-cargo">Engenheiro de Software em Automação <span class="codigo-cbo">CBO: 2122-15</span></h3>
+                        <div class="periodo-trabalho">10/03/2025 - Presente</div>
+                        <div class="localizacao-trabalho">Prudentópolis, Brasil</div>
+                        <div class="nome-empresa">BMZ Advogados Associados</div>
+                        <ul class="lista-atividades">
+                            <li>Desenvolvo soluções inovadoras de <strong>automação para processos jurídicos</strong>, aumentando significativamente a eficiência operacional do escritório.</li>
+                            <li>Gerencio a infraestrutura de TI completa, incluindo servidores, redes e sistemas de comunicação, garantindo alta disponibilidade e segurança dos dados.</li>
+                            <li>Implemento fluxos de trabalho automatizados para análise de documentos legais, utilizando processamento de linguagem natural e técnicas de aprendizado de máquina.</li>
+                            <li>Integro sistemas jurídicos com plataformas dos tribunais e órgãos governamentais, otimizando o acompanhamento processual.</li>
+                            <li>Desenvolvo e mantenho dashboards analíticos para monitoramento de indicadores de performance e prazos processuais.</li>
+                            <li><strong>Projetos desenvolvidos:</strong> 
+                                <a href="https://github.com/BMZadvogadosassociados?tab=repositories" target="_blank" class="link-github">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    Ver projetos BMZ no GitHub
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                        </svg>
-                        <span>sochodolak22@gmail.com</span>
+                    
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Suporte Técnico e Estoquista</h3>
+                        <div class="periodo-trabalho">10/2024 - 12/2024</div>
+                        <div class="localizacao-trabalho">Guarapuava, Brasil</div>
+                        <div class="nome-empresa">Distribuidora Smart</div>
+                        <ul class="lista-atividades">
+                            <li>Responsável pelo estoque, teste e manutenção de produtos de segurança e automação residencial.</li>
+                            <li>Gerenciamento de equipamentos como câmeras, DVRs e dispositivos para casas inteligentes.</li>
+                            <li>Adquiri conhecimento aprofundado sobre sistemas de monitoramento e integração de casas inteligentes com Alexa e outras IAs.</li>
+                            <li>Configuração e suporte de Hubs residenciais e dispositivos IoT.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Estágio</h3>
+                        <div class="periodo-trabalho">02/2024 - 10/2024</div>
+                        <div class="localizacao-trabalho">Prudentópolis, Brasil</div>
+                        <div class="nome-empresa">Escola Coronel José Durski</div>
+                        <ul class="lista-atividades">
+                            <li>Cuidado das crianças e auxílio nas atividades educacionais.</li>
+                            <li>Suporte na gestão de documentação escolar e digitalização de processos.</li>
+                            <li>Transferência de dados para sistemas digitais da prefeitura.</li>
+                            <li>Auxílio geral na administração e operações da escola.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Técnico de Computadores</h3>
+                        <div class="periodo-trabalho">06/2020 - Presente</div>
+                        <div class="localizacao-trabalho">Prudentópolis, Brasil</div>
+                        <div class="nome-empresa">Autônomo</div>
+                        <ul class="lista-atividades">
+                            <li>Serviços informais de manutenção para a comunidade e empresas locais.</li>
+                            <li>Conserto, montagem e formatação de computadores desktop e notebooks.</li>
+                            <li>Recuperação de dados e manutenção de equipamentos eletrônicos em geral.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Professor Voluntário de Informática</h3>
+                        <div class="periodo-trabalho">02/2018 - 03/2020</div>
+                        <div class="localizacao-trabalho">Prudentópolis, Brasil</div>
+                        <div class="nome-empresa">Colégio Imaculada Virgem Maria</div>
+                        <ul class="lista-atividades">
+                            <li>Instrutor de informática para pessoas da terceira idade.</li>
+                            <li>Desenvolvimento e implementação de métodos de ensino interativos.</li>
+                            <li>Orientação de alunos em projetos de pesquisa, fornecendo suporte técnico.</li>
+                            <li>Colaboração com outros educadores para criar cursos abrangentes de ciência da computação.</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
+            
+            <!-- Seção de Educação -->
+            <section class="secao-conteudo">
+                <h2 class="titulo-secao">Educação</h2>
+                <div class="linha-tempo">
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Bacharelado em Engenharia de Software</h3>
+                        <div class="periodo-trabalho">01/2024 - Presente</div>
+                        <div class="localizacao-trabalho">Guarapuava, Brasil</div>
+                        <div class="nome-empresa">Centro Universitário Campo Real</div>
+                        <p class="descricao-curso">Cursando 3º Período</p>
+                    </div>
+                    
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Curso de Agente Bancário</h3>
+                        <div class="periodo-trabalho">04/2020 - 11/2020</div>
+                        <div class="localizacao-trabalho">Prudentópolis, Brasil</div>
+                        <div class="nome-empresa">Certificação Profissional</div>
+                        <ul class="lista-atividades">
+                            <li>Procedimentos bancários, análise financeira e atendimento ao cliente</li>
+                            <li>Operações bancárias, incluindo manuseio de dinheiro e gerenciamento de contas</li>
+                            <li>Processamento de empréstimos e reconciliação de registros financeiros</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="item-linha-tempo">
+                        <h3 class="titulo-cargo">Ensino Médio</h3>
+                        <div class="periodo-trabalho">02/2017 - 12/2023</div>
+                        <div class="localizacao-trabalho">Prudentópolis, Brasil</div>
+                        <div class="nome-empresa">Colégio Imaculada Virgem Maria</div>
+                        <p class="descricao-curso">Completo</p>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </section>
+            
+            <!-- Seção de Habilidades -->
+            <section class="secao-conteudo">
+                <h2 class="titulo-secao">Habilidades</h2>
+                <div class="container-habilidades">
+                    <div class="tag-habilidade">Desenvolvimento de Software</div>
+                    <div class="tag-habilidade">Automação de Processos</div>
+                    <div class="tag-habilidade">Gerenciamento de TI</div>
+                    <div class="tag-habilidade">Integração de Sistemas</div>
+                    <div class="tag-habilidade">Manutenção de Computadores</div>
+                    <div class="tag-habilidade">Recuperação de Dados</div>
+                    <div class="tag-habilidade">Casa Inteligente</div>
+                    <div class="tag-habilidade">Sistemas de Segurança</div>
+                    <div class="tag-habilidade">Suporte Técnico</div>
+                    <div class="tag-habilidade">Ensino de Informática</div>
+                </div>
+            </section>
+        </div>
+<!-- Conteúdo dos Projetos -->
+        <div class="conteudo-secao oculto" id="secao-projetos">
+            <!-- Projetos Pessoais -->
+            <section class="secao-conteudo">
+                <h2 class="titulo-secao">Meus Projetos Pessoais</h2>
+                <div class="grade-projetos">
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/>
+                                <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/>
+                            </svg>
+                            <h3>Gerador PIX</h3>
+                        </div>
+                        <p class="descricao-projeto">Gerador de QR Codes PIX com interface moderna e funcionalidades avançadas para facilitar transações.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">HTML5</span>
+                            <span class="tag-tecnologia">CSS3</span>
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">QR.js</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/DuRendeer/Gerador-Pix">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                            <button class="botao-projeto botao-demo" data-url="https://durendeer.github.io/Gerador-Pix/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 2.255 4.327c.377.377.882.623 1.44.732a12.68 12.68 0 0 1 .554-1.52z"/>
+                                </svg>
+                                Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                            </svg>
+                            <h3>Gerador QR Code</h3>
+                        </div>
+                        <p class="descricao-projeto">Ferramenta versátil para gerar QR Codes personalizados com diferentes tipos de conteúdo e estilos.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">HTML5</span>
+                            <span class="tag-tecnologia">CSS3</span>
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">Canvas API</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/DuRendeer/Gerador-QrCode">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                            <button class="botao-projeto botao-demo" data-url="https://durendeer.github.io/Gerador-QrCode">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 2.255 4.327c.377.377.882.623 1.44.732a12.68 12.68 0 0 1 .554-1.52z"/>
+                                </svg>
+                                Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
+                            </svg>
+                            <h3>Currículo Interativo</h3>
+                        </div>
+                        <p class="descricao-projeto">Este próprio currículo desenvolvido com tecnologias modernas e design responsivo.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">HTML5</span>
+                            <span class="tag-tecnologia">CSS3</span>
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">Responsive</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/DuRendeer/Curriculo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projetos BMZ -->
+            <section class="secao-conteudo">
+                <h2 class="titulo-secao">Projetos Desenvolvidos na BMZ Advogados</h2>
+                <div class="grade-projetos">
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>
+                            <h3>Painel RH</h3>
+                        </div>
+                        <p class="descricao-projeto">Sistema completo de recursos humanos desenvolvido para a BMZ Advogados, com gestão de funcionários e relatórios.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">HTML</span>
+                            <span class="tag-tecnologia">CSS</span>
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">PHP</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/BMZadvogadosassociados/painel-rh">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+                            </svg>
+                            <h3>Aplicativo de Ponto</h3>
+                        </div>
+                        <p class="descricao-projeto">Sistema de controle de ponto eletrônico para funcionários da BMZ, com interface intuitiva e relatórios detalhados.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">Node.js</span>
+                            <span class="tag-tecnologia">Express</span>
+                            <span class="tag-tecnologia">MySQL</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/BMZadvogadosassociados/Aplicativo-PONTO">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                            </svg>
+                            <h3>Calculadora Auxílio Acidente</h3>
+                        </div>
+                        <p class="descricao-projeto">Ferramenta para cálculo automático de auxílios acidentários, simplificando processos trabalhistas complexos.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">HTML5</span>
+                            <span class="tag-tecnologia">CSS3</span>
+                            <span class="tag-tecnologia">Bootstrap</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/BMZadvogadosassociados/Calc-Aux-Acidente">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+<div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                            </svg>
+                            <h3>Roleta de Sorteio</h3>
+                        </div>
+                        <p class="descricao-projeto">Sistema interativo de sorteios para eventos operacionais da empresa, com animações e interface responsiva.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">HTML</span>
+                            <span class="tag-tecnologia">CSS</span>
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">Canvas</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/BMZadvogadosassociados/roletaSorteio">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                            </svg>
+                            <h3>Bot Discord</h3>
+                        </div>
+                        <p class="descricao-projeto">Bot automatizado para Discord com funcionalidades de moderação e integração com sistemas internos da empresa.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">Python</span>
+                            <span class="tag-tecnologia">Discord.py</span>
+                            <span class="tag-tecnologia">SQLite</span>
+                            <span class="tag-tecnologia">API</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/BMZadvogadosassociados/Bot-DISC">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="cabecalho-projeto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3zm5 2v6a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5h-3A.5.5 0 0 0 6 5z"/>
+                            </svg>
+                            <h3>Sistema de Extrato</h3>
+                        </div>
+                        <p class="descricao-projeto">Plataforma para geração e visualização de extratos financeiros com filtros avançados e exportação de relatórios.</p>
+                        <div class="tecnologias-projeto">
+                            <span class="tag-tecnologia">HTML</span>
+                            <span class="tag-tecnologia">CSS</span>
+                            <span class="tag-tecnologia">JavaScript</span>
+                            <span class="tag-tecnologia">Chart.js</span>
+                        </div>
+                        <div class="acoes-projeto">
+                            <button class="botao-projeto" data-url="https://github.com/BMZadvogadosassociados/Extrato">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
         
-        <section class="section">
-            <h2>Experiência Profissional</h2>
-            <div class="timeline">
-                <div class="timeline-item highlight">
-                    <h3>Engenheiro de Software em Automação <span class="cbo">CBO: 2122-15</span></h3>
-                    <div class="date">10/03/2025 - Presente</div>
-                    <div class="location">Prudentópolis, Brasil</div>
-                    <div class="company">BMZ Advogados Associados</div>
-                    <ul>
-                        <li>Desenvolvo soluções inovadoras de <strong>automação para processos jurídicos</strong>, aumentando significativamente a eficiência operacional do escritório.</li>
-                        <li>Gerencio a infraestrutura de TI completa, incluindo servidores, redes e sistemas de comunicação, garantindo alta disponibilidade e segurança dos dados.</li>
-                        <li>Implemento fluxos de trabalho automatizados para análise de documentos legais, utilizando processamento de linguagem natural e técnicas de aprendizado de máquina.</li>
-                        <li>Integro sistemas jurídicos com plataformas dos tribunais e órgãos governamentais, otimizando o acompanhamento processual.</li>
-                        <li>Desenvolvo e mantenho dashboards analíticos para monitoramento de indicadores de performance e prazos processuais.</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Suporte Técnico e Estoquista</h3>
-                    <div class="date">10/2024 - 12/2024</div>
-                    <div class="location">Guarapuava, Brasil</div>
-                    <div class="company">Distribuidora Smart</div>
-                    <ul>
-                        <li>Responsável pelo estoque, teste e manutenção de produtos de segurança e automação residencial.</li>
-                        <li>Gerenciamento de equipamentos como câmeras, DVRs e dispositivos para casas inteligentes.</li>
-                        <li>Adquiri conhecimento aprofundado sobre sistemas de monitoramento e integração de casas inteligentes com Alexa e outras IAs.</li>
-                        <li>Configuração e suporte de Hubs residenciais e dispositivos IoT.</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Estágio</h3>
-                    <div class="date">02/2024 - 10/2024</div>
-                    <div class="location">Prudentópolis, Brasil</div>
-                    <div class="company">Escola Coronel José Durski</div>
-                    <ul>
-                        <li>Cuidado das crianças e auxílio nas atividades educacionais.</li>
-                        <li>Suporte na gestão de documentação escolar e digitalização de processos.</li>
-                        <li>Transferência de dados para sistemas digitais da prefeitura.</li>
-                        <li>Auxílio geral na administração e operações da escola.</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Técnico de Computadores</h3>
-                    <div class="date">06/2020 - Presente</div>
-                    <div class="location">Prudentópolis, Brasil</div>
-                    <div class="company">Autônomo</div>
-                    <ul>
-                        <li>Serviços informais de manutenção para a comunidade e empresas locais.</li>
-                        <li>Conserto, montagem e formatação de computadores desktop e notebooks.</li>
-                        <li>Recuperação de dados e manutenção de equipamentos eletrônicos em geral.</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Professor Voluntário de Informática</h3>
-                    <div class="date">02/2018 - 03/2020</div>
-                    <div class="location">Prudentópolis, Brasil</div>
-                    <div class="company">Colégio Imaculada Virgem Maria</div>
-                    <ul>
-                        <li>Instrutor de informática para pessoas da terceira idade.</li>
-                        <li>Desenvolvimento e implementação de métodos de ensino interativos.</li>
-                        <li>Orientação de alunos em projetos de pesquisa, fornecendo suporte técnico.</li>
-                        <li>Colaboração com outros educadores para criar cursos abrangentes de ciência da computação.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>Educação</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Bacharelado em Engenharia de Software</h3>
-                    <div class="date">01/2024 - Presente</div>
-                    <div class="location">Guarapuava, Brasil</div>
-                    <div class="company">Centro Universitário Campo Real</div>
-                    <p>Cursando 3º Período</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Curso de Agente Bancário</h3>
-                    <div class="date">04/2020 - 11/2020</div>
-                    <div class="location">Prudentópolis, Brasil</div>
-                    <div class="company">Certificação Profissional</div>
-                    <ul>
-                        <li>Procedimentos bancários, análise financeira e atendimento ao cliente</li>
-                        <li>Operações bancárias, incluindo manuseio de dinheiro e gerenciamento de contas</li>
-                        <li>Processamento de empréstimos e reconciliação de registros financeiros</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Ensino Médio</h3>
-                    <div class="date">02/2017 - 12/2023</div>
-                    <div class="location">Prudentópolis, Brasil</div>
-                    <div class="company">Colégio Imaculada Virgem Maria</div>
-                    <p>Completo</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>Habilidades</h2>
-            <div class="skills">
-                <div class="skill">Desenvolvimento de Software</div>
-                <div class="skill">Automação de Processos</div>
-                <div class="skill">Gerenciamento de TI</div>
-                <div class="skill">Integração de Sistemas</div>
-                <div class="skill">Manutenção de Computadores</div>
-                <div class="skill">Recuperação de Dados</div>
-                <div class="skill">Casa Inteligente</div>
-                <div class="skill">Sistemas de Segurança</div>
-                <div class="skill">Suporte Técnico</div>
-                <div class="skill">Ensino de Informática</div>
-            </div>
-        </section>
-        
-        <footer>
+        <!-- Rodapé -->
+        <footer class="rodape-principal">
             <p>© 2025 Eduardo Sochodolak • Atualizado em Maio de 2025</p>
         </footer>
     </div>
     
-    <script>
-        function createRandomLeaf() {
-            const container = document.querySelector('.container');
-            const leaf = document.createElement('div');
-            leaf.classList.add('leaf');
-            
-            const leftPos = Math.random() * 100;
-            const animDelay = Math.random() * 10;
-            
-            leaf.style.left = leftPos + '%';
-            leaf.style.top = '-30px';
-            leaf.style.animationDelay = animDelay + 's';
-            
-            container.appendChild(leaf);
-            
-
-            setTimeout(() => {
-                leaf.remove();
-            }, 10000);
-        }
-        
-        setInterval(createRandomLeaf, 3000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
