@@ -1,5 +1,5 @@
 /* ==========================================
-   SISTEMA DE GERENCIAMENTO DE TEMA
+   SISTEMA DE GERENCIAMENTO DE TEMA TESTE
    ========================================== */
 
 class GerenciadorTema {
